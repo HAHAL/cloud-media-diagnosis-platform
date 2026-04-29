@@ -1,0 +1,15 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: cloud-media-diagnosis-platform
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+
+diagnosis:
+  http:
+    default-timeout-ms: 5000
+    max-timeout-ms: 15000
