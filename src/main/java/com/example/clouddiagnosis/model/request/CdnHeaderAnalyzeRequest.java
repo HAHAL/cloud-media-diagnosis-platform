@@ -7,4 +7,6 @@ import lombok.Data;
 public class CdnHeaderAnalyzeRequest {
     @NotBlank(message = "URL 不能为空")
     private String url;
+
+    private Boolean useCache = true;
 }

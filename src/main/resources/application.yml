@@ -3,7 +3,24 @@ server:
 
 spring:
   application:
-    name: cloud-media-diagnosis-platform
+    name: web-diagnosis-platform
+  datasource:
+    url: jdbc:h2:mem:diagnosis_db;MODE=MySQL;DATABASE_TO_LOWER=TRUE;DB_CLOSE_DELAY=-1
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: false
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      timeout: 1000ms
 
 springdoc:
   api-docs:
@@ -13,3 +30,6 @@ diagnosis:
   http:
     default-timeout-ms: 5000
     max-timeout-ms: 15000
+  cache:
+    enabled: true
+    ttl-seconds: 300

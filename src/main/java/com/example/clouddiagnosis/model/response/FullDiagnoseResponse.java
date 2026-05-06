@@ -15,6 +15,10 @@ public class FullDiagnoseResponse {
     private List<String> rootCauseHints;
     private List<String> nextActions;
     private String customerReplyTemplate;
+    private Long recordId;
+    private Boolean cached;
+    private String cacheKey;
+    private Long cacheTtlSeconds;
     private DnsDiagnoseResponse dns;
     private HttpDiagnoseResponse http;
     private CdnHeaderAnalyzeResponse cdnHeader;

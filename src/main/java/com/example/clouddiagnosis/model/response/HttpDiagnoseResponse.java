@@ -21,4 +21,7 @@ public class HttpDiagnoseResponse {
     private List<String> diagnosis;
     private List<String> suggestions;
     private String errorMessage;
+    private Boolean cached;
+    private String cacheKey;
+    private Long cacheTtlSeconds;
 }

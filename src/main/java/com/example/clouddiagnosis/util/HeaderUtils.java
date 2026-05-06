@@ -12,10 +12,18 @@ public final class HeaderUtils {
     public static final List<String> KEY_HTTP_HEADERS = List.of(
             "Server", "Content-Type", "Content-Length", "Cache-Control", "Age", "Via",
             "X-Cache", "X-Cache-Status", "Location", "Accept-Ranges"
+            , "Expires", "ETag", "Last-Modified", "Set-Cookie",
+            "Access-Control-Allow-Origin", "Access-Control-Allow-Methods", "Access-Control-Allow-Headers",
+            "Strict-Transport-Security", "Content-Security-Policy", "X-Frame-Options",
+            "X-Content-Type-Options", "Referrer-Policy"
     );
 
     public static final List<String> KEY_CDN_HEADERS = List.of(
-            "Cache-Control", "Expires", "Age", "Via", "X-Cache", "X-Cache-Status", "ETag", "Last-Modified", "Set-Cookie"
+            "Content-Type", "Cache-Control", "Expires", "Age", "Via", "X-Cache", "X-Cache-Status",
+            "ETag", "Last-Modified", "Set-Cookie", "Location", "Server",
+            "Access-Control-Allow-Origin", "Access-Control-Allow-Methods", "Access-Control-Allow-Headers",
+            "Strict-Transport-Security", "Content-Security-Policy", "X-Frame-Options",
+            "X-Content-Type-Options", "Referrer-Policy"
     );
 
     private HeaderUtils() {

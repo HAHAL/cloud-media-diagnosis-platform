@@ -17,4 +17,7 @@ public class DnsDiagnoseResponse {
     private RiskLevel riskLevel;
     private List<String> diagnosis;
     private List<String> suggestions;
+    private Boolean cached;
+    private String cacheKey;
+    private Long cacheTtlSeconds;
 }

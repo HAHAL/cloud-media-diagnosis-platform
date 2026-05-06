@@ -11,8 +11,8 @@ public class OpenApiConfig {
     @Bean
     public OpenAPI cloudDiagnosisOpenApi() {
         return new OpenAPI().info(new Info()
-                .title("云产品网络诊断与排障平台 API")
-                .description("面向 CDN、DNS、源站和视频资源访问问题的轻量级诊断接口")
+                .title("Web 应用故障诊断与运维支持平台 API")
+                .description("面向 URL/API 连通性、HTTP 状态码、Header、DNS、网关和上游服务异常的轻量级诊断接口")
                 .version("v1.0.0"));
     }
 }

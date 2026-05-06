@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web 应用故障诊断与运维支持平台</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>Web 应用故障诊断与运维支持平台</h1>
+      <p>URL/API 健康检查、状态码分析、Header 检查、DNS 解析、综合诊断和历史记录查询。</p>
+    </div>
+    <nav>
+      <a href="/">Web Console</a>
+      <a href="/swagger-ui/index.html">Swagger Docs</a>
+      <a href="/api/health">Health Check</a>
+    </nav>
+  </header>
+
+  <main class="layout">
+    <section class="panel controls">
+      <div class="tabs">
+        <button class="tab active" data-tab="health">URL/API 健康检查</button>
+        <button class="tab" data-tab="status">HTTP 状态码诊断</button>
+        <button class="tab" data-tab="header">Header 分析</button>
+        <button class="tab" data-tab="full">综合诊断</button>
+        <button class="tab" data-tab="history">诊断历史记录</button>
+      </div>
+
+      <form id="health-form" class="form active">
+        <label>URL/API 地址<input name="url" value="https://example.com"></label>
+        <label>请求方法
+          <select name="method">
+            <option selected>GET</option>
+            <option>HEAD</option>
+            <option>POST</option>
+          </select>
+        </label>
+        <label>超时时间 ms<input name="timeoutMs" type="number" value="5000"></label>
+        <label class="check"><input name="followRedirect" type="checkbox" checked> 跟随重定向</label>
+        <label class="check"><input name="useCache" type="checkbox" checked> 使用短期缓存</label>
+        <button type="submit">开始诊断</button>
+      </form>
+
+      <form id="status-form" class="form">
+        <label>状态码<input name="statusCode" type="number" value="504"></label>
+        <label>错误信息<input name="errorMessage" value="upstream timed out"></label>
+        <label>接口路径<input name="path" value="/api/order/list"></label>
+        <button type="submit">分析状态码</button>
+      </form>
+
+      <form id="header-form" class="form">
+        <label>URL<input name="url" value="https://example.com"></label>
+        <label class="check"><input name="useCache" type="checkbox" checked> 使用短期缓存</label>
+        <button type="submit">分析 Header</button>
+      </form>
+
+      <form id="full-form" class="form">
+        <label>URL<input name="url" value="https://example.com"></label>
+        <label>上游服务 URL，可选<input name="originUrl" placeholder="http://127.0.0.1:8081/api/health"></label>
+        <label>场景<input name="scenario" value="web_api"></label>
+        <label class="check"><input name="saveRecord" type="checkbox" checked> 保存诊断记录</label>
+        <label class="check"><input name="useCache" type="checkbox" checked> 使用短期缓存</label>
+        <button type="submit">执行综合诊断</button>
+      </form>
+
+      <div id="history-form" class="form">
+        <div class="history-toolbar">
+          <input id="history-url" placeholder="按 URL 过滤">
+          <select id="history-risk">
+            <option value="">全部风险等级</option>
+            <option>LOW</option>
+            <option>MEDIUM</option>
+            <option>HIGH</option>
+          </select>
+          <button id="load-history" type="button">刷新历史记录</button>
+        </div>
+        <div id="history-list" class="history-list"></div>
+      </div>
+    </section>
+
+    <section class="panel report">
+      <div class="report-head">
+        <h2>诊断报告</h2>
+        <div>
+          <button id="copy-report" type="button">复制诊断报告</button>
+          <button id="toggle-json" type="button">查看原始 JSON</button>
+        </div>
+      </div>
+      <div id="message"></div>
+      <div id="report-card" class="report-card empty">请选择左侧诊断类型并执行。</div>
+      <pre id="raw-json" class="raw-json hidden"></pre>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

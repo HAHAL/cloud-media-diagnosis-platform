@@ -18,4 +18,7 @@ public class CdnHeaderAnalyzeResponse {
     private Map<String, String> headers;
     private List<String> diagnosis;
     private List<String> suggestions;
+    private Boolean cached;
+    private String cacheKey;
+    private Long cacheTtlSeconds;
 }

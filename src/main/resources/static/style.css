@@ -1,0 +1,298 @@
+:root {
+  color-scheme: light;
+  --bg: #f6f8fb;
+  --panel: #ffffff;
+  --text: #1f2937;
+  --muted: #667085;
+  --line: #d9e2ec;
+  --primary: #1663c7;
+  --danger: #b42318;
+  --warn: #b54708;
+  --ok: #067647;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px 32px;
+  background: #102033;
+  color: #fff;
+}
+
+.topbar h1 {
+  margin: 0 0 8px;
+  font-size: 24px;
+}
+
+.topbar p {
+  margin: 0;
+  color: #c9d6e2;
+}
+
+.topbar nav {
+  display: flex;
+  gap: 12px;
+  white-space: nowrap;
+}
+
+.topbar a {
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, .35);
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 440px minmax(0, 1fr);
+  gap: 20px;
+  padding: 24px;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, .04);
+}
+
+.controls {
+  padding: 16px;
+}
+
+.tabs {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.tab,
+button {
+  cursor: pointer;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--text);
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-size: 14px;
+}
+
+.tab.active,
+button[type="submit"],
+#load-history {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+.form {
+  display: none;
+}
+
+.form.active {
+  display: grid;
+  gap: 14px;
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+input,
+select {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 10px;
+  font-size: 14px;
+  color: var(--text);
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.check input {
+  width: auto;
+}
+
+.report {
+  min-height: 720px;
+  padding: 20px;
+}
+
+.report-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 14px;
+}
+
+.report-head h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.report-card {
+  display: grid;
+  gap: 16px;
+  padding-top: 18px;
+}
+
+.report-card.empty {
+  color: var(--muted);
+}
+
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.metric {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 12px;
+  background: #fbfcfe;
+}
+
+.metric span {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+
+.metric strong {
+  font-size: 16px;
+  overflow-wrap: anywhere;
+}
+
+.section {
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+}
+
+.section h3 {
+  margin: 0 0 10px;
+  font-size: 16px;
+}
+
+.section ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 4px 9px;
+  font-size: 12px;
+  background: #eef4ff;
+  color: #1849a9;
+}
+
+.risk-LOW {
+  background: #ecfdf3;
+  color: var(--ok);
+}
+
+.risk-MEDIUM {
+  background: #fffaeb;
+  color: var(--warn);
+}
+
+.risk-HIGH,
+.error {
+  background: #fef3f2;
+  color: var(--danger);
+}
+
+.message {
+  margin-top: 14px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+}
+
+.raw-json {
+  margin-top: 18px;
+  padding: 16px;
+  background: #0b1220;
+  color: #d6e4ff;
+  border-radius: 8px;
+  overflow: auto;
+  max-height: 420px;
+}
+
+.hidden {
+  display: none;
+}
+
+.history-toolbar {
+  display: grid;
+  gap: 10px;
+}
+
+.history-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.history-item {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 12px;
+  background: #fbfcfe;
+}
+
+.history-item h4 {
+  margin: 0 0 8px;
+  overflow-wrap: anywhere;
+}
+
+.history-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+@media (max-width: 980px) {
+  .topbar,
+  .report-head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+    padding: 14px;
+  }
+
+  .metric-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
